@@ -48,7 +48,8 @@ func main() {
 	r := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{*corsURL}
+	// config.AllowOrigins = []string{*corsURL}
+	config.AllowAllOrigins = true
 	r.Use(cors.New(config))
 
 	// Endpoint to write random records to the database
