@@ -30,6 +30,7 @@ func main() {
 	dbPassword := flag.String("db-password", "", "Database password")
 	dbName := flag.String("db-name", "mydatabase", "Database name")
 	apiPort := flag.String("api-port", "8080", "Database name")
+	fmt.Printf(*corsURL)
 
 	// Parse the command-line arguments.
 	flag.Parse()
@@ -47,10 +48,10 @@ func main() {
 	// Create a new Gin router.
 	r := gin.Default()
 
-	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{*corsURL}
-	r.Use(cors.New(config))
-
+	// config := cors.DefaultConfig()
+	// config.AllowOrigins = []string{*corsURL}
+	// r.Use(cors.New(config))
+	r.Use(cors.Default())
 	// Endpoint to write random records to the database
 	r.GET("/write", func(c *gin.Context) {
 		name := generateRandomName()
