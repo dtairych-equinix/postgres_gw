@@ -48,11 +48,7 @@ func main() {
 	// Create a new Gin router.
 	r := gin.Default()
 
-	// config := cors.DefaultConfig()
-	// config.AllowOrigins = []string{*corsURL}
-	// r.Use(cors.New(config))
 	r.Use(cors.Default())
-	// Endpoint to write random records to the database
 	r.GET("/write", func(c *gin.Context) {
 		name := generateRandomName()
 		age := generateRandomAge()
