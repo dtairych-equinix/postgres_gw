@@ -125,6 +125,6 @@ func generateRandomRecords(db *sql.DB) {
 			log.Println("Error inserting record:", err)
 		}
 
-		time.Sleep(10 * time.Microsecond) // Wait for 500ms before generating the next record
+		time.Sleep(10 * time.Millisecond) // Wait for 500ms before generating the next record
 	}
 }
